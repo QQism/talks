@@ -1,0 +1,112 @@
+# Talk outline: chapters in order, each with sections in order.
+# Each section is a folder with an agent.py exposing build_agent() (or ask() for raw model calls).
+# compare_to = <path> picks the section the diff is shown against (default: the previous one).
+# photo_prompts = [{ text, photo }] are scripted prompts that attach an image.
+# hood = memory | system | streaming | loop | skills | team | structured | multimodal shows the Under the hood view.
+# streaming = true makes the UI consume agent.stream_async() so text, thinking and tools appear live.
+# slide = <file.md> shows a full-width slide instead of code and chat.
+# A chapter with numbered = false has no numbers; nav = false keeps it out of the top bar.
+
+[[chapter]]
+title = "Intro"
+numbered = false  # no chapter or section numbers
+nav = false  # not in the top bar, which doubles as the agenda on these slides
+
+  [[chapter.section]]
+  title = "Title"
+  path = "chapters/00_intro/01_title"
+  slide = "chapters/00_intro/01_title/slide.md"
+
+  [[chapter.section]]
+  title = "The assistant"
+  path = "chapters/00_intro/02_assistant"
+  slide = "chapters/00_intro/02_assistant/slide.md"
+
+[[chapter]]
+title = "Foundations"
+
+  [[chapter.section]]
+  title = "Raw model call"
+  path = "chapters/01_foundations/01_raw_model"
+  hood = "memory"
+  prompts = ["Hi! I'm Quang, taking my family to Japan next week.", "What's my name, and where are we going?"]
+
+  [[chapter.section]]
+  title = "First agent"
+  path = "chapters/01_foundations/02_first_agent"
+  hood = "memory"
+  prompts = ["Hi! I'm Quang, taking my family to Japan next week.", "What's my name, and where are we going?", "Plan a day in Kyoto for us"]
+
+  [[chapter.section]]
+  title = "System prompt"
+  path = "chapters/01_foundations/03_system_prompt"
+  hood = "system"
+  prompts = ["Plan Saturday in Kyoto for my family"]
+
+  [[chapter.section]]
+  title = "Streaming"
+  path = "chapters/01_foundations/04_streaming"
+  hood = "streaming"
+  streaming = true
+  prompts = ["Plan a week in Japan for my family: Tokyo, then Kyoto"]
+
+  [[chapter.section]]
+  title = "Thinking"
+  path = "chapters/01_foundations/05_thinking"
+  hood = "loop"
+  streaming = true
+  prompts = ["We have 4 days for Kyoto and Tokyo with a 4-year-old. How should we split them?", "What's the date today?", "What's the weather in Kyoto this Saturday?"]
+
+[[chapter]]
+title = "Tools & skills"
+
+  [[chapter.section]]
+  title = "Tools"
+  path = "chapters/02_tools_and_skills/01_tools"
+  hood = "loop"
+  streaming = true
+  prompts = ["What's the date today?", "What's the weather in Kyoto this Saturday?", "Plan Saturday in Kyoto for my family"]
+
+  [[chapter.section]]
+  title = "Skills"
+  path = "chapters/02_tools_and_skills/02_skills"
+  hood = "skills"
+  streaming = true
+  prompts = ["Plan a trip for my family", "There are four of us: my wife, our daughter (7), our son (4) and me. We fly from Ho Chi Minh City to Kyoto, then Tokyo, leaving next Friday for 4 days. My wife is vegetarian, and our son gets tired on long walks, so we bring a stroller.", "Tell my mom about the plan. She prefers Vietnamese."]
+
+[[chapter]]
+title = "Going further"
+
+  [[chapter.section]]
+  title = "Specialist team"
+  path = "chapters/03_going_further/01_specialist_team"
+  compare_to = "chapters/02_tools_and_skills/02_skills"
+  hood = "team"
+  streaming = true
+  prompts = ["We fly from Ho Chi Minh City. Plan Saturday in Kyoto and Sunday in Tokyo for my family: my vegetarian wife, our daughter (7), our son (4) with a stroller for long walks, and me."]
+
+  [[chapter.section]]
+  title = "Structured output"
+  path = "chapters/03_going_further/02_structured_output"
+  compare_to = "chapters/02_tools_and_skills/02_skills"
+  hood = "structured"
+  streaming = true
+  prompts = ["We're in Kyoto this Saturday, just for the day: plan it for my vegetarian wife, our daughter (7), our son (4) with a stroller for long walks, and me.", "Plan Saturday in Kyoto and Sunday in Tokyo for the four of us"]
+
+  [[chapter.section]]
+  title = "Photo input"
+  path = "chapters/03_going_further/03_photo_input"
+  compare_to = "chapters/02_tools_and_skills/02_skills"
+  hood = "multimodal"
+  streaming = true
+  prompts = ["Hi! I'm Quang. My wife is vegetarian; we're in Tokyo tomorrow with our two kids."]
+  photo_prompts = [{ text = "Can my wife eat this? If not, where can she get something like it?", photo = "assets/photos/tonkotsu-ramen.jpg" }]
+
+[[chapter]]
+title = "Your turn"
+numbered = false  # the closing slide: no chapter or section numbers
+
+  [[chapter.section]]
+  title = "Build your own"
+  path = "chapters/04_your_turn/01_build_your_own"
+  slide = "chapters/04_your_turn/01_build_your_own/slide.md"

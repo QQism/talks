@@ -1,0 +1,57 @@
+[client]
+toolbarMode = "minimal"
+
+[server]
+address = "127.0.0.1"  # local only: the app runs agents with your API key
+enableStaticServing = true  # serves ./static (fonts) at app/static/
+
+# Light theme: warm paper background, tan accents, ET Book serif.
+[theme]
+base = "light"
+backgroundColor = "#eee7d7"
+secondaryBackgroundColor = "#e6dcc8"
+textColor = "#1e1e1e"
+primaryColor = "#987a64"
+linkColor = "#987a64"
+borderColor = "#d0b49f"
+codeBackgroundColor = "#f6f1e6"
+font = "et-book, Palatino, 'Palatino Linotype', 'Book Antiqua', Georgia, serif"
+headingFont = "et-book, Palatino, 'Palatino Linotype', 'Book Antiqua', Georgia, serif"
+codeFont = "'Cascadia Code', Menlo, monospace"
+baseFontSize = 16
+
+[[theme.fontFaces]]
+family = "et-book"
+url = "app/static/fonts/et-book-roman.woff"
+weight = 400
+style = "normal"
+
+[[theme.fontFaces]]
+family = "et-book"
+url = "app/static/fonts/et-book-italic.woff"
+weight = 400
+style = "italic"
+
+[[theme.fontFaces]]
+family = "et-book"
+url = "app/static/fonts/et-book-semibold.woff"
+weight = 600
+style = "normal"
+
+[[theme.fontFaces]]
+family = "et-book"
+url = "app/static/fonts/et-book-bold.woff"
+weight = 700
+style = "normal"
+
+[[theme.fontFaces]]
+family = "Cascadia Code"
+url = "app/static/fonts/CascadiaCode.ttf"
+weight = "200 700"
+style = "normal"
+
+[[theme.fontFaces]]
+family = "Cascadia Code"
+url = "app/static/fonts/CascadiaCodeItalic.ttf"
+weight = "200 700"
+style = "italic"

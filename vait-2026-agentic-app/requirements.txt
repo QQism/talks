@@ -1,0 +1,5 @@
+# Versions the talk was built and tested with.
+strands-agents[anthropic,openai]==1.60.0
+streamlit==1.65.0  # presenter app (app.py)
+streamlit-code-editor==0.1.22  # presenter app: edit mode
+python-dotenv==1.2.4
